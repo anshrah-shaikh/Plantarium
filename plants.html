@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Our Plants 🌿</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  min-height: 100vh;
+  background:
+    linear-gradient(135deg, rgba(10, 31, 20, 0.85), rgba(26, 51, 34, 0.9), rgba(16, 32, 24, 0.85)),
+    url('bgimg1.png') center/cover no-repeat;
+  background-attachment: fixed;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow-x: hidden;
+  color: #e8f3e8;
+}
+
+/* Navbar */
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  background: rgba(17, 35, 25, 0.7);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  padding: 15px 0;
+  z-index: 100;
+}
+
+.navbar a {
+  color: #e8f3e8;
+  text-decoration: none;
+  margin: 0 20px;
+  font-weight: 500;
+  transition: 0.3s;
+  font-size: 1rem;
+}
+
+.navbar a:hover {
+  color: #b4e7c2;
+  text-shadow: 0 0 6px rgba(180, 231, 194, 0.6);
+}
+
+/* Grid Container */
+.plants-container {
+  margin-top: 120px;
+  width: 95%;
+  max-width: 1600px;
+  display: grid;
+
+  grid-template-columns: repeat(auto-fill, minmax(280px, 320px));
+  justify-content: center;
+
+  gap: 35px;
+  padding-bottom: 60px;
+
+  /* 🌿 Added classy fade-in */
+  animation: fadeIn 1.2s ease;
+}
+
+/* Plant Card */
+.plant-card {
+  position: relative;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  padding: 20px;
+  backdrop-filter: blur(15px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+  transition: 0.3s ease;
+  overflow: hidden;
+}
+
+/* Texture Overlay */
+.plant-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: url("img.png") repeat;
+  opacity: 0.04;
+  pointer-events: none;
+  border-radius: 20px;
+}
+
+/* Original Hover */
+.plant-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6);
+}
+
+/* Image */
+.plant-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 15px;
+  margin-bottom: 15px;
+}
+
+/* Text Styling */
+.plant-card h2 {
+  color: #b4e7c2;
+  font-size: 1.3rem;
+  margin-bottom: 5px;
+}
+
+.plant-card p {
+  font-size: 0.9rem;
+  margin-bottom: 6px;
+  color: rgba(230, 245, 230, 0.9);
+}
+
+.plant-card a {
+  color: #b4e7c2;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.plant-card a:hover {
+  text-decoration: underline;
+}
+
+/* 🌿 Fade-in Animation (same as About page) */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Mobile Responsive */
+@media (max-width: 600px) {
+  .plants-container {
+    grid-template-columns: 1fr;
+  }
+
+  .plant-card img {
+    height: 180px;
+  }
+}
+
+</style>
+</head>
+
+<body>
+
+<nav class="navbar">
+  <a href="index.html">Home</a>
+  <a href="plants.html">Plants</a>
+  <a href="about.html">About</a>
+  <a href="contact.html">Contact Us</a>
+</nav>
+
+<div class="plants-container" id="plantsContainer"></div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
